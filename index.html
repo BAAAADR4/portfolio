@@ -1,0 +1,347 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Badr Belmamoun — Portfolio</title>
+    <meta name="description"
+        content="Badr Belmamoun — Étudiant en BTS SIO & futur développeur. Portfolio présentant compétences, projets et contact.">
+    <style>
+        :root {
+            --accent: #6C63FF;
+            /* violet doux */
+            --bg: #0f1724;
+            /* foncé */
+            --card: #0b1220;
+            --muted: #9aa4b2;
+            --glass: rgba(255, 255, 255, 0.04);
+            --radius: 12px;
+            font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        html,
+        body {
+            height: 100%
+        }
+
+        body {
+            margin: 0;
+            background: linear-gradient(180deg, #071026 0%, #071028 60%);
+            color: #e6eef8;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            padding: 32px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 980px;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+            border-radius: 18px;
+            padding: 28px;
+            box-shadow: 0 10px 30px rgba(2, 6, 23, 0.6);
+            backdrop-filter: blur(6px) saturate(120%);
+        }
+
+        header {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .avatar {
+            width: 96px;
+            height: 96px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent), #49c0b6);
+            display: grid;
+            place-items: center;
+            font-weight: 700;
+            font-size: 28px;
+            color: white;
+            flex: 0 0 96px;
+            box-shadow: 0 6px 18px rgba(108, 99, 255, 0.18);
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 26px
+        }
+
+        .lead {
+            color: var(--muted);
+            margin-top: 6px;
+            font-size: 15px
+        }
+
+        .actions {
+            margin-left: auto;
+            display: flex;
+            gap: 10px
+        }
+
+        .btn {
+            background: var(--accent);
+            color: white;
+            padding: 10px 14px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 6px 18px rgba(108, 99, 255, 0.12)
+        }
+
+        .btn.ghost {
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            color: var(--muted);
+            box-shadow: none
+        }
+
+        main {
+            display: grid;
+            grid-template-columns: 1fr 360px;
+            gap: 22px;
+            margin-top: 22px
+        }
+
+        /* left column */
+        .card {
+            background: var(--card);
+            border-radius: 14px;
+            padding: 18px
+        }
+
+        .about p {
+            color: var(--muted);
+            line-height: 1.6
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 12px
+        }
+
+        .skill {
+            background: var(--glass);
+            padding: 8px 10px;
+            border-radius: 999px;
+            font-weight: 600;
+            color: #dce8ff;
+            font-size: 13px
+        }
+
+        .projects {
+            display: grid;
+            gap: 12px;
+            margin-top: 12px
+        }
+
+        .project {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+            padding: 12px;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.012), rgba(255, 255, 255, 0.01));
+            border-radius: 10px
+        }
+
+        .project .meta {
+            flex: 1
+        }
+
+        .project h4 {
+            margin: 0 0 6px 0
+        }
+
+        .project p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 14px
+        }
+
+        /* right column */
+        aside .profile {
+            display: flex;
+            flex-direction: column;
+            gap: 12px
+        }
+
+        .stat {
+            background: var(--glass);
+            padding: 12px;
+            border-radius: 10px;
+            text-align: center
+        }
+
+        .stat strong {
+            display: block;
+            font-size: 20px
+        }
+
+        .contact a {
+            display: block;
+            text-decoration: none;
+            color: var(--muted);
+            padding: 10px;
+            border-radius: 8px
+        }
+
+        footer {
+            text-align: center;
+            color: var(--muted);
+            font-size: 13px;
+            margin-top: 18px
+        }
+
+        /* responsive */
+        @media (max-width:880px) {
+            main {
+                grid-template-columns: 1fr
+            }
+
+            .actions {
+                display: none
+            }
+        }
+
+        /* small animations */
+        .fade-in {
+            animation: fadeIn .6s ease both
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(6px)
+            }
+
+            to {
+                opacity: 1;
+                transform: none
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container fade-in" role="main">
+        <header>
+            <div class="avatar">
+                <img src="ma photo.jpg" alt="Photo" width="100" height="114">
+            </div>
+            <div>
+                <h1>Badr Belmamoun</h1>
+                <div class="lead">Étudiant en <strong>BTS SIO</strong> — futur développeur web & application</div>
+            </div>
+            <div class="actions">
+                <a class="btn" href="#contact">Me contacter</a>
+                <a class="btn ghost" href="#projects">Projets</a>
+            </div>
+        </header>
+
+        <main>
+            <section>
+                <section class="card about">
+                    <h3>À propos</h3>
+                    <p>Bonjour — je m'appelle Badr Belmamoun. Actuellement étudiant en BTS Services Informatiques aux
+                        Organisations (BTS SIO), je me forme pour devenir développeur. J'aime créer des applications
+                        utiles, apprendre de nouvelles technologies et résoudre des problèmes concrets avec du code.</p>
+                    <div class="skills" aria-hidden="false">
+                        <span class="skill">HTML</span>
+                        <span class="skill">CSS</span>
+                        <span class="skill">JavaScript</span>
+                        <span class="skill">PHP</span>
+                        <span class="skill">MySQL</span>
+                    </div>
+                </section>
+
+                <section class="card" id="projects">
+                    <h3>Projets</h3>
+                    <div class="projects">
+                        <article class="project">
+                            <div class="meta">
+                                <h4>Gestionnaire de tâches (School Project)</h4>
+                                <p>• Développement de petites fonctionnalités, création de pages web et correction de
+                                    bugs.
+                                    • Scripts PHP/JavaScript/Python et utilisation ou création d’API simples.
+                                    <br>
+                                    • Création et gestion de bases de données : modèles, requêtes SQL, sauvegardes.
+                                    <br>
+                                    • Un esprit d’analyse développé au service de solutions pertinentes et efficaces.
+                                    <br>
+                                    • Installation d’environnements de travail et assistance logicielle de base.
+                                </p>
+                                <div style="margin-top:8px"></div>
+                            </div>
+                        </article>
+
+                    </div>
+                </section>
+
+                <section class="card">
+                    <h3>Expériences & formation</h3>
+                    <p class="lead" style="margin-top:6px;color:var(--muted)">BTS SIO — Étudiant (en cours). Disponible
+                        pour un stage. </p>
+                </section>
+            </section>
+
+            <aside>
+                <div class="card profile">
+                    <div style="display:flex;align-items:center;gap:12px">
+                        <div
+                            style="width:64px;height:64px;border-radius:10px;background:linear-gradient(135deg,#7B61FF,#49C0B6);display:grid;place-items:center;font-weight:700">
+                            <img src="ma photo.jpg" alt="Photo" width="75" height="90">
+                        </div>
+
+                        <div>
+                            <strong>Badr Belmamoun</strong>
+                            <div style="color:var(--muted);font-size:13px">Étudiant BTS SIO</div>
+                        </div>
+                    </div>
+
+                    <div style="margin-top:12px">
+                        <div class="stat">
+                            <strong>En apprentissage</strong>
+                            <span style="display:block;color:var(--muted);margin-top:6px">Langages, frameworks & bonnes
+                                pratiques</span>
+                        </div>
+                    </div>
+
+                    <div style="margin-top:12px" id="contact" class="contact">
+                        <h4>Contact</h4>
+                        <a href="mailto:badr.belmamoun24@gmail.com">badr.belmamoun24@gmail.com</a>
+                        <a href="tel:+33 7 43 65 07 39 ">+33 7 43 65 07 39</a>
+                        <a href="https://github.com/BAAAADR4">GitHub — BAAAADR4</a>
+                        <a href="https://www.linkedin.com/in/belmamoun-badr-75a707386">LinkedIn — Belmamoun Badr</a>
+                    </div>
+
+                    <div style="margin-top:12px;display:flex;gap:8px">
+                        <a class="btn" href="./docs/CV - Copie.pdf">Télécharger CV</a>
+                    </div>
+                </div>
+
+    </div>
+    </div>
+
+    </aside>
+    </main>
+
+    <footer>
+        <div>© <span id="year"></span> Badr Belmamoun — Étudiant BTS SIO</div>
+    </footer>
+    </div>
+
+
+</body>
+
+</html>
